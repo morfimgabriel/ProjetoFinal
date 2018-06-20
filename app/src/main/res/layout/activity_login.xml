@@ -5,86 +5,99 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:background="@drawable/background_principal"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Login"
-        android:textSize="42dp"
 
-        android:gravity="center"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="42dp"
-        android:layout_marginLeft="70dp">
+        android:padding="40dp"
+
+        android:background="@drawable/borda_cinza"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/labelR8"
+            android:textSize="42dp"
+            android:gravity="center"
+            />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuário"
+        android:text="@string/labelUsuario"
         />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editNomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Digite seu usuário" />
+        android:background="@drawable/edit_text"
+        android:hint="@string/hintNomeUsuario" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Senha" />
+        android:text="@string/labelSenha"
+/>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Digite sua senha"
-        android:inputType="textPassword" />
+        android:background="@drawable/edit_text"
+        android:inputType="textPassword"
+     />
 
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Entrar"
-            android:layout_marginTop="5dp"
+            android:layout_height="33dp"
+            android:text="@string/btnEntrar"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="#af6eb3e9"/>
+            android:background="#af3089cf"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+         >
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:text="@string/labelNãoPussuiConta" />
+
+            <Button
+                android:id="@+id/btnCadastre-se"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cadastre-se agora"
+                android:onClick="TelaDeCadastro"/>
+
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="70dp">
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14dp"
-        android:gravity="center"
-        android:text="Você não possui uma conta?" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="cadastre-se agora" />
-
-    </LinearLayout>
 
 
 </LinearLayout>

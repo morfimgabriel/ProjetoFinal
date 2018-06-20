@@ -12,7 +12,7 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastre-se"
+        android:text="@string/labelCadastrar"
         android:textSize="40dp"
         android:gravity="center"/>
 
@@ -20,12 +20,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Usuario"
+        android:text="@string/labelUsuario"
         android:layout_marginLeft="55dp"
         android:textSize="20dp"
     />
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editNomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -34,27 +34,26 @@
         android:layout_marginRight="40dp"
         android:layout_marginLeft="50dp"
         android:inputType="textPersonName"
-        android:hint="Digite Nome de usuário" />
+        android:hint="@string/hintNomeUsuario" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Senha"
+        android:text="@string/labelSenha"
         android:layout_marginLeft="55dp"
         android:textSize="20dp"
         />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-
         android:layout_marginRight="30dp"
         android:layout_marginLeft="55dp"
-        android:hint="Digite sua senha"/>
+        android:hint="@string/hintSenha"/>
 
     <Button
         android:id="@+id/button2"
@@ -63,7 +62,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="35dp"
         android:layout_marginLeft="65dp"
-        android:text="Button" />
+        android:text="@string/btnCadastrar"
+        android:onClick="CadastrarUsuario"/>
 
 
 </LinearLayout>
