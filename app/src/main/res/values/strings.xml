@@ -26,8 +26,8 @@
     <string name="btnCadastrar">Cadastrar</string>
     <string name="btnEntrar">Entrar</string>
     <string name="btnBuscar">Buscar</string>
+    <string name="btnVoltar">Voltar</string>
     <string name="btnCadastrese">Cadastre-se agora</string>
-
 
 
 </resources>

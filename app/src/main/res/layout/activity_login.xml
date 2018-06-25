@@ -22,22 +22,20 @@
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
         >
-        <TextView
+
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/labelR8"
-            android:textSize="42dp"
-            android:gravity="center"
-            />
-    <TextView
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/labelUsuario"
         />
 
-    <EditText
+        <EditText
         android:id="@+id/editNomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,10 +66,13 @@
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:text="@string/btnEntrar"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="#af3089cf"/>
+            android:onClick="entrar"
+            android:background="@drawable/borda_cinza"
+
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,9 +93,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="cadastre-se agora"
+                android:background="@drawable/borda_cinza"
                 android:onClick="TelaDeCadastro"/>
 
         </LinearLayout>
+
     </LinearLayout>
 
 

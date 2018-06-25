@@ -13,32 +13,39 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-
-    android:layout_margin="40dp">
+    android:background="@drawable/borda_cinza"
+    android:layout_margin="20dp">
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/label_pesquisar_shopping"
         android:layout_marginTop="20dp"
         android:textSize="20dp"
+        android:background="@drawable/teste"
         android:gravity="center"/>
 
-    <MultiAutoCompleteTextView
-        android:id="@+id/edit"
-        android:layout_width="336dp"
+    <AutoCompleteTextView
+        android:id="@+id/autoComplete"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintNomeShopping"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/edit_text"
+        />
 
     <Button
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="#71dc6f"
-        android:layout_marginLeft="10dp"
+        android:background="@drawable/button_arredondado_voltar"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+
         android:text="@string/btnBuscar" />
 </LinearLayout>
 
