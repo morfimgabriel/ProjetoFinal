@@ -1,51 +1,72 @@
 package gabriel.br.com.projetofinal;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import gabriel.br.com.projetofinal.DAO.MyORMLiteHelper;
+import gabriel.br.com.projetofinal.Entity.AdapterAutocomplete;
 import gabriel.br.com.projetofinal.Entity.Shopping;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     MyORMLiteHelper banco;
     ArrayList<Shopping> listaShopping;
-    ArrayAdapter<Shopping> adapterShoppings;
-
+    AdapterAutocomplete adapterShoppings;
+    AutoCompleteTextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        banco = MyORMLiteHelper.getInstance(this);
+
+        try {
+            popularShopping();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         try {
             listaShopping = (ArrayList<Shopping>) banco.getShoppingDAO().queryForAll();
-            if (listaShopping.size() == 0) {
+            if (listaShopping == null) {
                 listaShopping = (ArrayList<Shopping>) banco.getShoppingDAO().queryForAll();
-                popularShopping();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        banco = MyORMLiteHelper.getInstance(this);
 
-        adapterShoppings = new ArrayAdapter<Shopping>(this,
-                android.R.layout.simple_dropdown_item_1line, listaShopping);
-        AutoCompleteTextView textView = (AutoCompleteTextView)
-                findViewById(R.id.autoComplete);
+        adapterShoppings = new AdapterAutocomplete(this, listaShopping);
+
+        textView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
         textView.setAdapter(adapterShoppings);
+
+
     }
 
+
+
+    public void teste(View v){
+        textView.setText(String.valueOf(v.getTag()));
+        textView.dismissDropDown();
+    }
 
     public void popularShopping() throws SQLException {
         Shopping shop1 = new Shopping("Shopping itaguaçu");
+        Shopping shop2 = new Shopping("Shopping Beiramar");
         banco.getShoppingDAO().create(shop1);
+        banco.getShoppingDAO().create(shop2);
     }
+
+
 }
 
 

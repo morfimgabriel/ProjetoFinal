@@ -31,10 +31,16 @@ public class Shopping {
         this.nome = nome;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Shopping{" +
-                "nome='" + nome + '\'' +
-                '}';
+        return nome;
     }
 }

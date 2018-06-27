@@ -21,10 +21,10 @@ public class MyORMLiteHelper extends OrmLiteSqliteOpenHelper {
 
 
     //nome do banco de dados
-    private static final String DATABASE_NAME = "minhapedida.txt";
+    private static final String DATABASE_NAME = "projetoFinal.txt";
 
     //Versão do banco
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     //Váriavel Singleton
     private static MyORMLiteHelper mInstance = null;
@@ -117,6 +117,7 @@ public class MyORMLiteHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource, int i, int i1) {
         try {
             TableUtils.dropTable(connectionSource,User.class, true);
+            TableUtils.dropTable(connectionSource,Shopping.class, true);
         } catch (SQLException e) {
             e.printStackTrace();
         }
