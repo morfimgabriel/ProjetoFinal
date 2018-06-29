@@ -3,6 +3,8 @@ package gabriel.br.com.projetofinal.Entity;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.util.ArrayList;
+
 /**
  * Created by Aluno on 26/06/2018.
  */
