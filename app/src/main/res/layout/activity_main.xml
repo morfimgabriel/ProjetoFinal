@@ -56,7 +56,8 @@
 
         android:text="@string/label_shopping_favoritado"
         android:textSize="18dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:paddingBottom="15dp"/>
 
     <ListView
         android:layout_width="match_parent"

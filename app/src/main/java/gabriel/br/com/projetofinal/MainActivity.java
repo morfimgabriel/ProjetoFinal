@@ -14,6 +14,7 @@ import gabriel.br.com.projetofinal.DAO.MyORMLiteHelper;
 
 import gabriel.br.com.projetofinal.Entity.AdapterAutocomplete;
 import gabriel.br.com.projetofinal.Entity.Shopping;
+import gabriel.br.com.projetofinal.model.AdapterlistFavoritos;
 
 public class MainActivity extends Activity {
 
@@ -23,7 +24,7 @@ public class MainActivity extends Activity {
     AutoCompleteTextView textView;
     ArrayList<Shopping> shoppingFavoritos;
     ListView listShoppingsFavoritos;
-    ArrayAdapter<Shopping> adapterShoppingFavoritos;
+    AdapterlistFavoritos adapterShoppingFavoritos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class MainActivity extends Activity {
 
         listShoppingsFavoritos = findViewById(R.id.listFavoritos);
 
-        adapterShoppingFavoritos = new ArrayAdapter<Shopping>(this, android.R.layout.simple_list_item_1, shoppingFavoritos);
+        adapterShoppingFavoritos = new AdapterlistFavoritos(this, shoppingFavoritos);
         listShoppingsFavoritos.setAdapter(adapterShoppingFavoritos);
 
 

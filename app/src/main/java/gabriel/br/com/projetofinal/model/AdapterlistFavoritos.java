@@ -16,11 +16,11 @@ import gabriel.br.com.projetofinal.R;
  * Created by Aluno on 29/06/2018.
  */
 
-public class listViewFavoritos extends BaseAdapter{
+public class AdapterlistFavoritos extends BaseAdapter{
     ArrayList<Shopping> listShopping;
     LayoutInflater inflate;
 
-    public listViewFavoritos(Context ctx, ArrayList<Shopping> lista){
+    public AdapterlistFavoritos(Context ctx, ArrayList<Shopping> lista){
         listShopping = lista;
         inflate = LayoutInflater.from(ctx);
     }
@@ -65,7 +65,6 @@ public class listViewFavoritos extends BaseAdapter{
         }else{
             tvNome.setText(s.getNome());
         }
-        
 
         return convertView;
     }

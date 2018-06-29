@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="ver"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,11 +9,14 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:text="Nome Shopping"
+        android:layout_marginBottom="8dp"
         android:id="@+id/tvIdNomeShopping"
         android:textSize="15sp"
         android:gravity="center"
         android:padding="10dp"
+        android:background="@drawable/teste"
         />
+
 
 
 
