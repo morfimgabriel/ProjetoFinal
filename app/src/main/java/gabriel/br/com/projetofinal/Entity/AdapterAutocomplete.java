@@ -16,6 +16,7 @@ import android.widget.ThemedSpinnerAdapter;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,10 +90,27 @@ public class AdapterAutocomplete extends ArrayAdapter<Shopping> {
                 alerta.setIcon(android.R.drawable.ic_menu_view);
                 alerta.setMessage(s.getNome());
                 alerta.setNegativeButton("Fechar",null);
+//                alerta.setNeutralButton("deletar", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        try {
+//                            banco.getShoppingDAO().delete(s);
+//                            shoppingFavoritos.remove(s);
+//                        } catch (SQLException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                    });
+
                 alerta.setPositiveButton("Favoritar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         shoppingFavoritos.add(s);
+                        try {
+                            banco.getShoppingDAO().create(s);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
 
 
                     }

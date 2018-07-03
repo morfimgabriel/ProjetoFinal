@@ -1,8 +1,10 @@
 package gabriel.br.com.projetofinal;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
@@ -25,6 +27,7 @@ public class MainActivity extends Activity {
     ArrayList<Shopping> shoppingFavoritos;
     ListView listShoppingsFavoritos;
     AdapterlistFavoritos adapterShoppingFavoritos;
+    Shopping s ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         banco = MyORMLiteHelper.getInstance(this);
         shoppingFavoritos = new ArrayList<>();
+        Shopping s = null;
+
+        try {
+            shoppingFavoritos = (ArrayList<Shopping>) banco.getShoppingDAO().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         try {
             popularShopping();
@@ -57,6 +67,38 @@ public class MainActivity extends Activity {
 
         adapterShoppingFavoritos = new AdapterlistFavoritos(this, shoppingFavoritos);
         listShoppingsFavoritos.setAdapter(adapterShoppingFavoritos);
+
+        listShoppingsFavoritos.setOnLongClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                s = adapter
+                AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+                alerta.setTitle("Visualizando Shopping");
+                alerta.setMessage(sh.toString());
+                alerta.setNeutralButton("fechar", null);
+                alerta.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        editNomeProd.setText(produto.getNome());
+                        editValor.setText(String.valueOf(produto.getValor()));
+
+                        for (int pos = 0; pos < adapterCategoria.getCount(); pos++) {
+                            Categoria c = adapterCategoria.getItem(pos);
+                            if (c.getId() == produto.getCategoria().getId()) {
+                                spCategoria.setSelection(pos);
+                                break;
+                            }
+                        }
+
+                    }
+
+                });
+                alerta.show();
+
+            }
+        });
+            }
+        });
 
 
     }
