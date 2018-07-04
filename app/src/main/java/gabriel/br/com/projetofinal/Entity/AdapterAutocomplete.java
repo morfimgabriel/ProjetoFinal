@@ -101,7 +101,6 @@ public class AdapterAutocomplete extends ArrayAdapter<Shopping> {
 //                        }
 //                    }
 //                    });
-
                 alerta.setPositiveButton("Favoritar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
