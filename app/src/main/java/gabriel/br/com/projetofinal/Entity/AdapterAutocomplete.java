@@ -90,17 +90,7 @@ public class AdapterAutocomplete extends ArrayAdapter<Shopping> {
                 alerta.setIcon(android.R.drawable.ic_menu_view);
                 alerta.setMessage(s.getNome());
                 alerta.setNegativeButton("Fechar",null);
-//                alerta.setNeutralButton("deletar", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        try {
-//                            banco.getShoppingDAO().delete(s);
-//                            shoppingFavoritos.remove(s);
-//                        } catch (SQLException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                    });
+
                 alerta.setPositiveButton("Favoritar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

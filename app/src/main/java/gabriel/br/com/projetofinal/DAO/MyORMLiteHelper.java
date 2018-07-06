@@ -21,7 +21,7 @@ public class MyORMLiteHelper extends OrmLiteSqliteOpenHelper {
 
 
     //nome do banco de dados
-    private static final String DATABASE_NAME = "projetoFinal.txt";
+    private static final String DATABASE_NAME = "projetoFinal2.txt";
 
     //Versão do banco
     private static final int DATABASE_VERSION = 2;

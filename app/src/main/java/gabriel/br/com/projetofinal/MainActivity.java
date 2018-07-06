@@ -10,10 +10,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import cz.msebera.android.httpclient.Header;
 import gabriel.br.com.projetofinal.DAO.MyORMLiteHelper;
 
 import gabriel.br.com.projetofinal.Entity.AdapterAutocomplete;
@@ -38,7 +50,33 @@ public class MainActivity extends Activity {
         banco = MyORMLiteHelper.getInstance(this);
         shoppingFavoritos = new ArrayList<>();
 
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get("http://172.28.4.239:8080/mobileapi/v1/api/shopping/list", new AsyncHttpResponseHandler() {
 
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] response) {
+                try {
+                    JSONArray json = new JSONArray(new String(response));
+                    Type listType =
+                            new TypeToken<ArrayList<Shopping>>(){}.getType();
+                    listaShopping = (ArrayList<Shopping>) new Gson().fromJson(String.valueOf(json), listType);
+
+                    adapterShoppings = new AdapterAutocomplete(MainActivity.this, listaShopping);
+                    adapterShoppings.setShoppingFavoritos(shoppingFavoritos);
+                    textView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
+                    textView.setAdapter(adapterShoppings);
+                    Toast.makeText(MainActivity.this, "Sucesso!!! " + listaShopping.size(), Toast.LENGTH_SHORT).show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
+                // called when response HTTP status is "4XX" (eg. 401, 403, 404)
+            }
+
+        });
 
         // list view dos shoppings favoritos populando
         try {
@@ -47,25 +85,7 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
 
-//        try {
-//           popularShopping();
-//        } catch (SQLException e) {'
-//           e.printStackTrace();
-//       }
 
-        try {
-            listaShopping = (ArrayList<Shopping>) banco.getShoppingDAO().queryForAll();
-            if (listaShopping == null) {
-                listaShopping = (ArrayList<Shopping>) banco.getShoppingDAO().queryForAll();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        adapterShoppings = new AdapterAutocomplete(this, listaShopping);
-        adapterShoppings.setShoppingFavoritos(shoppingFavoritos);
-        textView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
-        textView.setAdapter(adapterShoppings);
 
         listShoppingsFavoritos = findViewById(R.id.listFavoritos);
 
@@ -104,21 +124,7 @@ public class MainActivity extends Activity {
             }
         });
 
-//        listShoppingsFavoritos.setOnLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                return false;
-//            }
-//        });
-//    }
-
-
         }
-
-
-
-
-
 
 
     public void teste(View v){

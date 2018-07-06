@@ -16,14 +16,14 @@ public class User {
     private Integer id;
 
     @DatabaseField(canBeNull = false)
-    private String nome;
+    private String login;
 
     @DatabaseField(canBeNull = false)
     private String senha;
 
 
-    public User(String nome, String senha) {
-        this.nome = nome;
+    public User(String login, String senha) {
+        this.login = login;
         this.senha = senha;
     }
 
@@ -31,12 +31,12 @@ public class User {
 
     }
 
-    public String getNome() {
-        return nome;
+    public String getLogin() {
+        return login;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getSenha() {
@@ -50,7 +50,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "nome='" + nome + '\'' +
+                "login='" + login + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
     }
