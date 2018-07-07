@@ -15,13 +15,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity
-            android:name=".NavigationActivity"
-            android:label="@string/title_activity_navigation">
 
-
-        </activity>
-        <activity android:name=".CadastrarUsuarioActivity">
+        <activity android:name=".CadastrarUsuarioActivity"
+            android:theme="@style/AppTheme2">
 
         </activity>
         <activity
@@ -32,9 +28,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".NavegacaoActivity">
+
 
         </activity>
 

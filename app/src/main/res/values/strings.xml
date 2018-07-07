@@ -1,15 +1,5 @@
 <resources>
     <string name="app_name">ProjetoFinal</string>
-    <string name="main_menu_home">Home</string>
-    <string name="main_menu_avaliacoes">Avaliações</string>
-    <string name="main_menu_shopping">Shopping</string>
-    <string name="main_menu_ofertas">Ofertas</string>
-    <string name="main_menu_premios">Premios</string>
-    <string name="title_activity_navigation">navigation</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-
 
     <string name="labelUsuario">Usuario</string>
     <string name="labelSenha">Senha</string>
@@ -28,6 +18,12 @@
     <string name="btnBuscar">Buscar</string>
     <string name="btnVoltar">Voltar</string>
     <string name="btnCadastrese">Cadastre-se agora</string>
+    <string name="btnPraça">Praça de Alimentação</string>
+    <string name="btnEventos">Eventos</string>
+    <string name="btnCinema">Cinema</string>
+    <string name="btnLojas">Lojas</string>
+    <string name="btnEstacionamento">Estacionamento</string>
+    <string name="btnServiços">Serviços</string>
 
 
 </resources>

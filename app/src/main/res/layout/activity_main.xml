@@ -40,12 +40,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="35dp"
+        android:onClick="buscarShopping"
         android:background="@drawable/button_arredondado_voltar"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-
         android:text="@string/btnBuscar" />
 </LinearLayout>
 

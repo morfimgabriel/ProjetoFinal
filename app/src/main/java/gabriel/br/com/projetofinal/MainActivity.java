@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -103,7 +104,7 @@ public class MainActivity extends Activity {
                 alerta.setPositiveButton("Visitar Shopping", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                        Intent i = new Intent(MainActivity.this, NavegacaoActivity.class);
                         startActivity(i);
                     }
                 });
@@ -132,14 +133,23 @@ public class MainActivity extends Activity {
         textView.dismissDropDown();
     }
 
-    public void popularShopping() throws SQLException {
-        Shopping shop1 = new Shopping("Shopping itaguaçu");
-        Shopping shop2 = new Shopping("Shopping Beiramar");
-        banco.getShoppingDAO().create(shop1);
-        banco.getShoppingDAO().create(shop2);
+//    public void popularShopping() throws SQLException {
+//        Shopping shop1 = new Shopping("Shopping itaguaçu");
+//        Shopping shop2 = new Shopping("Shopping Beiramar");
+//        banco.getShoppingDAO().create(shop1);
+//        banco.getShoppingDAO().create(shop2);
+//    }
+
+
+    public void buscarShopping(View view) {
+        textView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
+        if (textView.getText().toString().length()== 0) {
+            Toast.makeText(this, "Campo vazio selecione um shopping", Toast.LENGTH_SHORT).show();
+        }else {
+            Intent i = new Intent(MainActivity.this, NavegacaoActivity.class);
+            startActivity(i);
+        }
     }
-
-
 }
 
 

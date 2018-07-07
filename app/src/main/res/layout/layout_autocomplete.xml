@@ -25,6 +25,8 @@
     android:layout_width="match_parent"
     android:longClickable="true"
     android:clickable="true"
+    android:padding="10dp"
+    android:background="@drawable/borda_auto_complete"
     android:tag="Testandoooooo"
     android:onClick="teste"
     android:layout_height="?android:attr/listPreferredItemHeight"

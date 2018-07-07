@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Digite sua senha"
+        android:hint="@string/hintSenha"
         android:background="@drawable/edit_text"
         android:inputType="textPassword"
      />
@@ -96,7 +96,7 @@
                 android:id="@+id/btnCadastre-se"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cadastre-se agora"
+                android:text="@string/btnCadastrar"
                 android:background="@drawable/borda_cinza"
                 android:onClick="TelaDeCadastro"/>
 
