@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             Gson gson = new Gson();
             entity = new StringEntity(gson.toJson(user));
             //url
-            String url = "http://172.28.4.239:8080/mobileapi/v1/api/user";
+            String url = "http://192.168.25.6:8080/mobileapi/v1/api/user";
             AsyncHttpClient client = new AsyncHttpClient();
 
             if (editNome.getText().toString().isEmpty() || editSenha.getText().toString().isEmpty()) {

@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
         shoppingFavoritos = new ArrayList<>();
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://172.28.4.239:8080/mobileapi/v1/api/shopping/list", new AsyncHttpResponseHandler() {
+        client.get("http://192.168.25.6:8080/mobileapi/v1/api/shopping/list", new AsyncHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response) {
@@ -100,15 +100,8 @@ public class MainActivity extends Activity {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
                 alerta.setTitle("Visualizando Shopping");
                 alerta.setMessage(s.toString());
-                alerta.setNeutralButton("fechar", null);
-                alerta.setPositiveButton("Visitar Shopping", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent(MainActivity.this, NavegacaoActivity.class);
-                        startActivity(i);
-                    }
-                });
-                alerta.setNeutralButton("remover favorito", new DialogInterface.OnClickListener() {
+                alerta.setNegativeButton("fechar", null);
+                alerta.setPositiveButton("remover favorito", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -121,8 +114,27 @@ public class MainActivity extends Activity {
                     }
                 });
                 alerta.show();
-                return false;
+                return true;
             }
+        });
+
+        listShoppingsFavoritos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                s = adapterShoppingFavoritos.getItem(i);
+                AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+                alerta.setTitle("Visualizando Shopping");
+                alerta.setMessage(s.toString());
+                alerta.setNegativeButton("fechar", null);
+                alerta.setPositiveButton("Visitar Shopping", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(MainActivity.this, NavegacaoActivity.class);
+                        startActivity(i);
+                    }
+            });
+                alerta.show();
+        }
         });
 
         }

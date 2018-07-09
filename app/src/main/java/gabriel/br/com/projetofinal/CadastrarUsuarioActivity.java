@@ -51,7 +51,7 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
             }
 
             //url
-            String url = "http://172.28.4.239:8080/mobileapi/v1/api/user/new";
+            String url = "http://192.168.25.6:8080/mobileapi/v1/api/user/new";
             AsyncHttpClient client = new AsyncHttpClient();
 
             client.post(this, url, entity, "application/json", new AsyncHttpResponseHandler() {

@@ -76,18 +76,19 @@ public class AdapterAutocomplete extends ArrayAdapter<Shopping> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         banco = MyORMLiteHelper.getInstance(ctx);
-       s = listaShopping.get(position);
+        s = listaShopping.get(position);
 
         convertView = inflate.inflate(R.layout.layout_autocomplete, null);
         TextView tv = convertView.findViewById(R.id.editNomeShopping);
         tv.setText(s.getNome());
-        tv.setTag(s.getNome());
+        tv.setTag(position);
         tv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(ctx);
                 alerta.setTitle("Visualizando Dados");
                 alerta.setIcon(android.R.drawable.ic_menu_view);
+                s = listaShopping.get(Integer.valueOf(String.valueOf(v.getTag())));
                 alerta.setMessage(s.getNome());
                 alerta.setNegativeButton("Fechar",null);
 
